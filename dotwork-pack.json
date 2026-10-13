@@ -1,0 +1,84 @@
+{
+  "$schema": "./.dotwork/pack.schema.json",
+  "namespace": "TBM",
+  "version": "1.0.0",
+  "sdk": "0.1.0",
+  "views": [
+    {
+      "key": "it-cost-overview",
+      "title": "IT Cost Overview",
+      "slots": {
+        "costs": {
+          "kind": "Allocated Cost"
+        },
+        "amount": {
+          "field": "Allocated Cost.Amount"
+        },
+        "breakdown": {
+          "field": "Allocated Cost.IT Resource Tower"
+        },
+        "apps": {
+          "kind": "Applications"
+        },
+        "appName": {
+          "field": "Applications.Application Name"
+        },
+        "appFamily": {
+          "field": "Applications.Application Family"
+        },
+        "appUsers": {
+          "field": "Applications.Application User Count"
+        },
+        "appServers": {
+          "field": "Applications.Server Count"
+        }
+      },
+      "widgets": [
+        {
+          "type": "kpi",
+          "title": "Total IT cost",
+          "kind": "costs",
+          "metric": "sum",
+          "field": "amount",
+          "format": "currency",
+          "width": "third"
+        },
+        {
+          "type": "kpi",
+          "title": "Cost records",
+          "kind": "costs",
+          "metric": "count",
+          "width": "third"
+        },
+        {
+          "type": "kpi",
+          "title": "Applications",
+          "kind": "apps",
+          "metric": "count",
+          "width": "third"
+        },
+        {
+          "type": "bar",
+          "title": "Cost by tower",
+          "kind": "costs",
+          "metric": "sum",
+          "field": "amount",
+          "groupBy": "breakdown",
+          "format": "currency"
+        },
+        {
+          "type": "table",
+          "title": "Applications",
+          "kind": "apps",
+          "columns": [
+            "appName",
+            "appFamily",
+            "appUsers",
+            "appServers"
+          ],
+          "limit": 25
+        }
+      ]
+    }
+  ]
+}
