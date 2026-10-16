@@ -5,8 +5,8 @@
   "sdk": "0.1.0",
   "views": [
     {
-      "key": "it-cost-overview",
-      "title": "IT Cost Overview",
+      "key": "it-cost-summary",
+      "title": "IT Cost Summary",
       "slots": {
         "costs": {
           "kind": "Allocated Cost"
@@ -14,23 +14,8 @@
         "amount": {
           "field": "Allocated Cost.Amount"
         },
-        "breakdown": {
-          "field": "Allocated Cost.IT Resource Tower"
-        },
         "apps": {
           "kind": "Applications"
-        },
-        "appName": {
-          "field": "Applications.Application Name"
-        },
-        "appFamily": {
-          "field": "Applications.Application Family"
-        },
-        "appUsers": {
-          "field": "Applications.Application User Count"
-        },
-        "appServers": {
-          "field": "Applications.Server Count"
         }
       },
       "widgets": [
@@ -56,7 +41,24 @@
           "kind": "apps",
           "metric": "count",
           "width": "third"
+        }
+      ]
+    },
+    {
+      "key": "cost-breakdown",
+      "title": "Cost Breakdown",
+      "slots": {
+        "costs": {
+          "kind": "Allocated Cost"
         },
+        "amount": {
+          "field": "Allocated Cost.Amount"
+        },
+        "breakdown": {
+          "field": "Allocated Cost.IT Resource Tower"
+        }
+      },
+      "widgets": [
         {
           "type": "bar",
           "title": "Cost by tower",
@@ -64,8 +66,32 @@
           "metric": "sum",
           "field": "amount",
           "groupBy": "breakdown",
-          "format": "currency"
+          "format": "currency",
+          "width": "full"
+        }
+      ]
+    },
+    {
+      "key": "applications",
+      "title": "Applications",
+      "slots": {
+        "apps": {
+          "kind": "Applications"
         },
+        "appName": {
+          "field": "Applications.Application Name"
+        },
+        "appFamily": {
+          "field": "Applications.Application Family"
+        },
+        "appUsers": {
+          "field": "Applications.Application User Count"
+        },
+        "appServers": {
+          "field": "Applications.Server Count"
+        }
+      },
+      "widgets": [
         {
           "type": "table",
           "title": "Applications",
