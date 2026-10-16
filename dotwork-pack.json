@@ -1,8 +1,8 @@
 {
   "$schema": "./.dotwork/pack.schema.json",
   "namespace": "TBM",
-  "version": "1.0.0",
-  "sdk": "0.1.0",
+  "version": "1.2.0",
+  "sdk": "latest",
   "views": [
     {
       "key": "it-cost-summary",
