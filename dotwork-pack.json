@@ -1,7 +1,7 @@
 {
   "$schema": "./.dotwork/pack.schema.json",
   "namespace": "TBM",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "sdk": "0.1.0",
   "views": [
     {
@@ -55,13 +55,13 @@
           "field": "Allocated Cost.Amount"
         },
         "breakdown": {
-          "field": "Allocated Cost.IT Resource Tower"
+          "field": "Allocated Cost.Cost Pool"
         }
       },
       "widgets": [
         {
           "type": "bar",
-          "title": "Cost by tower",
+          "title": "Cost by cost pool",
           "kind": "costs",
           "metric": "sum",
           "field": "amount",
